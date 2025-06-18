@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.manu.spring.security.postgresql.SpringBootSecurityPostgresqlApplication.models.VideoJuego;
+import com.manu.spring.security.postgresql.SpringBootSecurityPostgresqlApplication.payload.response.VideoJuegoResponse;
 import com.manu.spring.security.postgresql.SpringBootSecurityPostgresqlApplication.models.User;
 import com.manu.spring.security.postgresql.SpringBootSecurityPostgresqlApplication.repository.*;
 import org.springframework.data.domain.Page;
@@ -40,10 +41,12 @@ public class VideoJuegoController {
     @Autowired
     private UserRepository userRepository;
 
-  @GetMapping("/all")
-    public Page<VideoJuego> getVideoJuego(Pageable pageable) {
-        return gameRepository.findAll(pageable);
-    }
+  
+
+    @GetMapping("/all")
+public Page<VideoJuegoResponse> getVideoJuego(Pageable pageable) {
+    return gameRepository.findAll(pageable)
+            .map(VideoJuegoResponse::new); }
   
 @PostMapping("/create")
 public VideoJuego createGame(@Valid @RequestBody VideoJuego game) {

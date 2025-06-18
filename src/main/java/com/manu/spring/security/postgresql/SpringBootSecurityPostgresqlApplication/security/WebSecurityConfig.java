@@ -79,6 +79,6 @@ public class WebSecurityConfig {
 
     http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     
-    return http.build();
+    return http.build();  
   }
 }
