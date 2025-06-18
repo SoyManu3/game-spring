@@ -9,6 +9,8 @@ public class VideoJuegoResponse {
     private Integer fechaDeLanzamiento;
     private String plataformas;
     private String genero;
+    private String url;
+    private String img;
     private String postedBy;
 
     // Constructor
@@ -19,7 +21,10 @@ public class VideoJuegoResponse {
         this.fechaDeLanzamiento = videoJuego.getFechaDeLanzamiento();
         this.plataformas = videoJuego.getPlataformas();
         this.genero = videoJuego.getGenero();
-        this.postedBy = videoJuego.getPostedBy().getUsername(); // Asumiendo que User tiene un campo 'username'
+        this.url = videoJuego.getUrl();
+        this.img = videoJuego.getImg();
+        this.postedBy = videoJuego.getPostedBy().getUsername();
+         // Asumiendo que User tiene un campo 'username'
     }
 
     public Long getId() {
@@ -76,6 +81,22 @@ public class VideoJuegoResponse {
 
     public void setPostedBy(String postedBy) {
         this.postedBy = postedBy;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
 }

@@ -37,6 +37,12 @@ public class VideoJuego {
   @NotBlank
   @Size(max = 140)
   private String genero;
+
+   @NotBlank
+  private String url;
+
+   @NotBlank
+  private String img;
   
 
 
@@ -50,12 +56,14 @@ public class VideoJuego {
   }
   public VideoJuego(@NotBlank @Size(max = 140) String nombre, @NotBlank @Size(max = 140) String creador,
       @NotNull(message = "La fecha de lanzamiento no puede ser nula") @PastOrPresent(message = "La fecha de lanzamiento no puede ser en el futuro") Integer fechaDeLanzamiento,
-      @NotBlank @Size(max = 140) String plataformas, @NotBlank @Size(max = 140) String genero) {
+      @NotBlank @Size(max = 140) String plataformas, @NotBlank @Size(max = 140) String genero,@NotBlank String url,@NotBlank  String img) {
     this.nombre = nombre;
     this.creador = creador;
     this.fechaDeLanzamiento = fechaDeLanzamiento;
     this.plataformas = plataformas;
     this.genero = genero;
+    this.url = url;
+    this.img = img;
   }
 
   
@@ -107,6 +115,18 @@ public String getNombre() {
 
   public void setPostedBy(User postedBy) {
     this.postedBy = postedBy;
+  }
+  public String getUrl() {
+    return url;
+  }
+  public void setUrl(String url) {
+    this.url = url;
+  }
+  public String getImg() {
+    return img;
+  }
+  public void setImg(String img) {
+    this.img = img;
   }
 
 

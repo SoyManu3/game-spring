@@ -64,7 +64,7 @@ public VideoJuego createGame(@Valid @RequestBody VideoJuego game) {
        System.out.println(user);
 
     // Crear el objeto VideoJuego con los datos recibidos
-    VideoJuego mygame = new VideoJuego(game.getNombre(), game.getCreador(), game.getFechaDeLanzamiento(), game.getPlataformas(), game.getGenero());
+    VideoJuego mygame = new VideoJuego(game.getNombre(), game.getCreador(), game.getFechaDeLanzamiento(), game.getPlataformas(), game.getGenero(),game.getUrl(), game.getImg());
     mygame.setPostedBy(user);
     gameRepository.save(mygame);
 
