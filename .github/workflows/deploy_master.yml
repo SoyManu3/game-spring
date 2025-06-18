@@ -4,7 +4,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - master  # O la rama que desees  
+      - release  # O la rama que desees  
 
 jobs:
   build-and-push:
@@ -37,7 +37,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/game-spring:${{github.sha}} 
+        tags: ${{ secrets.DOCKER_USERNAME }}/game-spring-pruebas:${{github.sha}} 
         build-args: |
           DB_URL=${{ secrets.DB_URL }}
           DB_USERNAME=${{ secrets.DB_USERNAME }}
